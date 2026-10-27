@@ -1,0 +1,16 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.paragraph {
+  margin: 0;
+  max-width: 40rem;
+  line-height: 1.5;
+}

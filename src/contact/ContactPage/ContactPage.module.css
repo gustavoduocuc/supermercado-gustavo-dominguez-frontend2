@@ -1,0 +1,41 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-style: normal;
+}
+
+.line {
+  margin: 0;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.term {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.value {
+  margin: 0 0 0.5rem;
+}
+
+.email {
+  color: var(--color-accent);
+}
