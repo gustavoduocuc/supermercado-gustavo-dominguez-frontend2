@@ -7,6 +7,7 @@ import {
 import { AddArticlePage } from '../articles/AddArticlePage/AddArticlePage';
 import { ArticleDetailPage } from '../articles/ArticleDetailPage/ArticleDetailPage';
 import { ArticleInventoryPage } from '../articles/ArticleInventoryPage/ArticleInventoryPage';
+import { CartPage } from '../cart/CartPage/CartPage';
 import { ContactPage } from '../contact/ContactPage/ContactPage';
 import { supermarketProfile } from '../content/supermarketProfile';
 import { InventoryPage } from '../inventory/InventoryPage/InventoryPage';
@@ -48,6 +49,7 @@ export const routes = [
         ],
       },
       { path: 'articulos/:articleId', Component: ArticleDetailPage },
+      { path: 'carrito', Component: CartPage },
       { path: '*', Component: NotFoundPage },
     ],
   },

@@ -4,7 +4,7 @@ import { routes } from './routing/routes';
 import { renderAt } from './testing/renderAt';
 
 test('route table exposes the shell sections', () => {
-  expect(routes[0].children).toHaveLength(6);
+  expect(routes[0].children).toHaveLength(7);
   expect(routes[0].children.map(function childPath(child) {
     return child.index ? 'index' : child.path;
   })).toEqual([
@@ -13,6 +13,7 @@ test('route table exposes the shell sections', () => {
     'contacto',
     'gestion-articulos',
     'articulos/:articleId',
+    'carrito',
     '*',
   ]);
 });
