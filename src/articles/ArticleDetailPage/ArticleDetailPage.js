@@ -29,7 +29,7 @@ export function ArticleDetailPage() {
         <dt className="text-muted">Tipo</dt>
         <dd className="m-0">{article.productType}</dd>
         <dt className="text-muted">Unidades disponibles</dt>
-        <dd className="m-0">
+        <dd aria-live="polite" className="m-0">
           <UnitCount quantity={article.quantity} />
         </dd>
       </dl>
