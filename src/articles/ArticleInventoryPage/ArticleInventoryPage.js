@@ -1,8 +1,9 @@
+import { Button } from '../../ui/Button/Button';
 import { useArticleInventory } from '../ArticleInventoryProvider/ArticleInventoryProvider';
 
 const headerClass =
-  'border-b border-[var(--color-line)] px-3 py-2 text-left font-semibold';
-const cellClass = 'border-b border-[var(--color-line)] px-3 py-2 text-left';
+  'border-b border-solid border-line px-3 py-2 text-left font-semibold';
+const cellClass = 'border-b border-solid border-line px-3 py-2 text-left';
 const quantityClass = `${cellClass} whitespace-nowrap text-sm font-semibold`;
 
 export function ArticleInventoryPage() {
@@ -10,7 +11,7 @@ export function ArticleInventoryPage() {
 
   return (
     <section>
-      <h1 className="mb-4 text-2xl">Inventario de artículos</h1>
+      <h1 className="m-0 mb-4 text-2xl">Inventario de artículos</h1>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[36rem] max-w-3xl border-collapse text-sm">
           <thead>
@@ -41,15 +42,14 @@ export function ArticleInventoryPage() {
                   <td className={cellClass}>{article.productType}</td>
                   <td className={quantityClass}>{article.quantity} unidades</td>
                   <td className={cellClass}>
-                    <button
-                      className="min-h-11 rounded px-3 py-2 text-sm text-[var(--color-accent)]"
-                      type="button"
+                    <Button
+                      variant="ghost"
                       onClick={function removeRow() {
                         inventory.removeArticle(article.id);
                       }}
                     >
                       Eliminar
-                    </button>
+                    </Button>
                   </td>
                 </tr>
               );

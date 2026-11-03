@@ -5,8 +5,16 @@ module.exports = {
     preflight: false,
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: 'var(--color-background)',
+        surface: 'var(--color-surface)',
+        text: 'var(--color-text)',
+        muted: 'var(--color-muted)',
+        accent: 'var(--color-accent)',
+        line: 'var(--color-line)',
+      },
+    },
   },
   plugins: [],
 }
-
