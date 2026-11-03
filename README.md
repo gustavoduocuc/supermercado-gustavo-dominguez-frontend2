@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Supermercado La Quinta
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sitio de la tienda de barrio. Muestra el inventario, una presentación de la tienda y los datos de contacto. La gestión de artículos comparte esa misma lista durante la visita.
 
-## Available Scripts
+## Secciones
 
-In the project directory, you can run:
+El menú inferior tiene cuatro destinos:
 
-### `npm start`
+| Sección | Dirección | Qué muestra |
+| --- | --- | --- |
+| Inicio | `/` | Nombre, marca, tipo y unidades de cada artículo. No se puede agregar ni eliminar desde aquí. |
+| Quiénes somos | `/quienes-somos` | Presentación de la tienda. |
+| Contáctanos | `/contacto` | Avenida Principal 120, La Quinta, teléfono +56 9 5555 0142 y correo contacto@supermercadolquinta.cl. |
+| Gestión de artículos | `/gestion-articulos` | Enlaces a Agregar artículo y a Inventario de artículos. |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Una dirección desconocida explica que la sección no existe y ofrece volver a Inicio.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Artículos
 
-### `npm test`
+La visita empieza con seis artículos: Leche entera 1 L (24 unidades), Pan hallulla (40), Arroz grado 1 1 kg (18), Huevos de gallina 12 un (15), Aceite vegetal 1 L (9) y Detergente 1 kg (7).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+En Agregar artículo (`/gestion-articulos/agregar-articulo`) se escribe el nombre y la marca, se elige el tipo y se indica la cantidad. El tipo sale de este menú: Abarrotes, Bebidas, Carnes, Congelados, Frescos, Higiene, Lácteos, Limpieza, Panadería y Otros. La cantidad tiene que ser un entero de 1 o más; si no lo es, no se guarda nada y el formulario conserva lo escrito.
 
-### `npm run build`
+Si el nombre, la marca y el tipo coinciden con una fila, sin distinguir mayúsculas y sin contar espacios al inicio o al final, las unidades se suman a esa fila. El texto ya guardado no cambia. Una marca distinta queda como otra fila.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Inventario de artículos (`/gestion-articulos/inventario-articulos`) muestra la tabla y permite eliminar una fila. Esa fila también desaparece del inicio. No se puede cambiar el nombre, la marca ni el tipo, y el inicio no tiene el control Eliminar.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La lista vive en memoria. Al recargar la página vuelven los seis artículos iniciales. No hay inicio de sesión.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Cómo ejecutarla
 
-### `npm run eject`
+Hace falta Node.js. En la carpeta del proyecto:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+La aplicación queda en [http://localhost:3000](http://localhost:3000).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`npm test` ejecuta las pruebas en memoria. `npm run build` genera la versión de producción en `build`.
