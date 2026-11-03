@@ -16,7 +16,7 @@ test('removing an article from the table also removes it from home and the cart'
 
   await goTo(router, '/gestion-articulos/inventario-articulos');
   const row = await screen.findByRole('row', { name: /Leche entera 1 L/ });
-  userEvent.click(within(row).getByRole('button', { name: 'Eliminar' }));
+  userEvent.click(within(row).getByRole('button', { name: 'Eliminar Leche entera 1 L' }));
 
   expect(screen.queryByRole('link', { name: 'Leche entera 1 L' })).not.toBeInTheDocument();
 

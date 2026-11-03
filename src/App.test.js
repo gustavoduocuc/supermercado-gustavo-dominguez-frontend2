@@ -251,7 +251,7 @@ test('removing an article drops it from the table and from home', async () => {
   renderAt('/gestion-articulos/inventario-articulos');
 
   const row = await screen.findByRole('row', { name: /Detergente 1 kg/ });
-  await userEvent.click(within(row).getByRole('button', { name: 'Eliminar' }));
+  await userEvent.click(within(row).getByRole('button', { name: /Eliminar/ }));
 
   expect(screen.queryByRole('cell', { name: 'Detergente 1 kg' })).not.toBeInTheDocument();
 
@@ -259,5 +259,5 @@ test('removing an article drops it from the table and from home', async () => {
 
   expect(await screen.findByText('Leche entera 1 L')).toBeInTheDocument();
   expect(screen.queryByText('Detergente 1 kg')).not.toBeInTheDocument();
-  expect(screen.queryByRole('button', { name: 'Eliminar' })).not.toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: /Eliminar/ })).not.toBeInTheDocument();
 });

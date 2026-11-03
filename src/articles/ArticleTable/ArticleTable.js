@@ -7,6 +7,7 @@ export function ArticleTable(props) {
   return (
     <div className="overflow-x-auto">
       <table className="w-full min-w-[36rem] max-w-3xl border-collapse text-sm">
+        <caption className="sr-only">Inventario de artículos</caption>
         <thead>
           <tr>
             <th className={headerClass} scope="col">

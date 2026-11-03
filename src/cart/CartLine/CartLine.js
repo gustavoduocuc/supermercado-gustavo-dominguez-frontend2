@@ -27,7 +27,7 @@ export function CartLine(props) {
           symbol="−"
           onClick={decrease}
         />
-        <span className="min-w-24 text-center text-base font-semibold">
+        <span aria-live="polite" className="min-w-24 text-center text-base font-semibold">
           {`Cantidad: ${props.quantity}`}
         </span>
         <QuantityButton

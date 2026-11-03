@@ -20,7 +20,11 @@ export function ArticleRow(props) {
         <UnitCount quantity={props.article.quantity} />
       </td>
       <td className={cellClass}>
-        <Button variant="ghost" onClick={removeRow}>
+        <Button
+          ariaLabel={`Eliminar ${props.article.name}`}
+          variant="ghost"
+          onClick={removeRow}
+        >
           Eliminar
         </Button>
       </td>

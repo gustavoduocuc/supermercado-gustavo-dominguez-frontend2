@@ -3,8 +3,8 @@ const baseClass =
 
 const variantClasses = {
   primary: `${baseClass} border-0 bg-accent text-surface hover:opacity-90`,
-  ghost: `${baseClass} border-0 bg-transparent text-accent hover:underline`,
-  outline: `${baseClass} border border-solid border-line bg-surface text-text hover:border-accent`,
+  ghost: `${baseClass} border-0 bg-transparent text-accent hover:underline disabled:hover:no-underline`,
+  outline: `${baseClass} border border-solid border-line bg-surface text-text hover:border-accent disabled:hover:border-line`,
 };
 
 export function Button(props) {
