@@ -1,11 +1,6 @@
 import { NavLink } from 'react-router';
+import { useArticleInventory } from '../../articles/ArticleInventoryProvider/ArticleInventoryProvider';
 import styles from './SectionMenu.module.css';
-
-const sections = [
-  { to: '/quienes-somos', label: 'Quiénes somos' },
-  { to: '/contacto', label: 'Contáctanos' },
-  { to: '/gestion-articulos', label: 'Gestión de artículos' },
-];
 
 function sectionLinkClass(state) {
   if (state.isActive) {
@@ -16,22 +11,28 @@ function sectionLinkClass(state) {
 }
 
 export function SectionMenu() {
+  const inventory = useArticleInventory();
+
   return (
     <nav className={styles.menu} aria-label="Secciones">
       <NavLink className={sectionLinkClass} to="/" end>
         Inicio
       </NavLink>
-      {sections.map(function renderSection(section) {
-        return (
-          <NavLink
-            key={section.to}
-            className={sectionLinkClass}
-            to={section.to}
-          >
-            {section.label}
-          </NavLink>
-        );
-      })}
+      <NavLink className={sectionLinkClass} to="/quienes-somos">
+        Quiénes somos
+      </NavLink>
+      <NavLink className={sectionLinkClass} to="/contacto">
+        Contáctanos
+      </NavLink>
+      <NavLink className={sectionLinkClass} to="/carrito">
+        Carrito
+        {inventory.cartUnitCount > 0 && (
+          <span className={styles.badge}>{inventory.cartUnitCount}</span>
+        )}
+      </NavLink>
+      <NavLink className={sectionLinkClass} to="/gestion-articulos">
+        Gestión de artículos
+      </NavLink>
     </nav>
   );
 }
