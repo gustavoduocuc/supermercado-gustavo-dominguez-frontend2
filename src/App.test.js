@@ -1,13 +1,7 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { createMemoryRouter, RouterProvider } from 'react-router';
 import { routes } from './routing/routes';
-
-function renderAt(path) {
-  const router = createMemoryRouter(routes, { initialEntries: [path] });
-  render(<RouterProvider router={router} />);
-  return router;
-}
+import { renderAt } from './testing/renderAt';
 
 test('route table exposes the shell sections', () => {
   expect(routes[0].children).toHaveLength(5);
