@@ -14,11 +14,14 @@ function withQuantity(article, quantity) {
   return { ...article, quantity };
 }
 
-function addOneToLine(cartLines, articleId) {
-  const hasLine = cartLines.some(function isLine(line) {
+function hasCartLine(cartLines, articleId) {
+  return cartLines.some(function isLine(line) {
     return line.articleId === articleId;
   });
-  if (!hasLine) {
+}
+
+function addOneToLine(cartLines, articleId) {
+  if (!hasCartLine(cartLines, articleId)) {
     return cartLines.concat({ articleId, quantity: 1 });
   }
   return cartLines.map(function addUnit(line) {
@@ -77,7 +80,7 @@ export function registerArticle(state, article) {
   return {
     ...state,
     articles: state.articles.concat({
-      id: crypto.randomUUID(),
+      id: article.id,
       name: article.name,
       brand: article.brand,
       productType: article.productType,
@@ -88,6 +91,7 @@ export function registerArticle(state, article) {
 
 export function deleteArticle(state, articleId) {
   return {
+    ...state,
     articles: state.articles.filter(function keepArticle(article) {
       return article.id !== articleId;
     }),
@@ -103,19 +107,18 @@ export function addUnitToCart(state, articleId) {
     return state;
   }
   return {
+    ...state,
     articles: changeArticleQuantity(state.articles, articleId, -1),
     cartLines: addOneToLine(state.cartLines, articleId),
   };
 }
 
 export function removeUnitFromCart(state, articleId) {
-  const hasLine = state.cartLines.some(function isLine(line) {
-    return line.articleId === articleId;
-  });
-  if (!hasLine) {
+  if (!hasCartLine(state.cartLines, articleId)) {
     return state;
   }
   return {
+    ...state,
     articles: changeArticleQuantity(state.articles, articleId, 1),
     cartLines: removeOneFromLine(state.cartLines, articleId),
   };

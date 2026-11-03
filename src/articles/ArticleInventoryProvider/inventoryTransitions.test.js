@@ -35,6 +35,7 @@ test('registering a repeated article adds units to the same row', () => {
 
 test('registering a new article appends a row with an id', () => {
   const next = transitions.registerArticle(createState(), {
+    id: 'queso-1',
     name: 'Queso',
     brand: 'Colún',
     productType: 'Lácteos',
@@ -43,7 +44,7 @@ test('registering a new article appends a row with an id', () => {
 
   expect(next.articles).toHaveLength(3);
   expect(next.articles[2].name).toBe('Queso');
-  expect(typeof next.articles[2].id).toBe('string');
+  expect(next.articles[2].id).toBe('queso-1');
 });
 
 test('deleting an article also drops its cart lines without returning stock', () => {

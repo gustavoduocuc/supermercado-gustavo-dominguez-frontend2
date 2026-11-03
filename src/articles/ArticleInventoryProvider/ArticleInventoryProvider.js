@@ -8,8 +8,9 @@ export function ArticleInventoryProvider(props) {
   const [state, setState] = useState({ articles: defaultArticles, cartLines: [] });
 
   function addArticle(article) {
+    const articleWithId = { ...article, id: crypto.randomUUID() };
     setState(function storeArticle(previous) {
-      return transitions.registerArticle(previous, article);
+      return transitions.registerArticle(previous, articleWithId);
     });
   }
 
@@ -49,5 +50,9 @@ export function ArticleInventoryProvider(props) {
 }
 
 export function useArticleInventory() {
-  return useContext(ArticleInventoryContext);
+  const inventory = useContext(ArticleInventoryContext);
+  if (!inventory) {
+    throw new Error('useArticleInventory needs an ArticleInventoryProvider');
+  }
+  return inventory;
 }

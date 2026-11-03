@@ -3,11 +3,17 @@ import { allCategories } from '../../articles/productTypes';
 import { filterByCategory } from '../filterByCategory';
 
 export function useCategoryFilter(articles) {
-  const [category, setCategory] = useState(allCategories);
+  const [state, setState] = useState({ category: allCategories });
+
+  function selectCategory(category) {
+    setState(function replaceCategory(previous) {
+      return { ...previous, category };
+    });
+  }
 
   return {
-    category,
-    visibleArticles: filterByCategory(articles, category),
-    selectCategory: setCategory,
+    category: state.category,
+    visibleArticles: filterByCategory(articles, state.category),
+    selectCategory,
   };
 }
