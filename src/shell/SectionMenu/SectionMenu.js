@@ -4,6 +4,7 @@ import styles from './SectionMenu.module.css';
 const sections = [
   { to: '/quienes-somos', label: 'Quiénes somos' },
   { to: '/contacto', label: 'Contáctanos' },
+  { to: '/gestion-articulos', label: 'Gestión de artículos' },
 ];
 
 function sectionLinkClass(state) {
