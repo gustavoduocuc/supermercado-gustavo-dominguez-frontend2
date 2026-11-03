@@ -5,6 +5,7 @@ import {
   ArticleManagementLayout,
 } from '../articles/ArticleManagementLayout/ArticleManagementLayout';
 import { AddArticlePage } from '../articles/AddArticlePage/AddArticlePage';
+import { ArticleDetailPage } from '../articles/ArticleDetailPage/ArticleDetailPage';
 import { ArticleInventoryPage } from '../articles/ArticleInventoryPage/ArticleInventoryPage';
 import { ContactPage } from '../contact/ContactPage/ContactPage';
 import { supermarketProfile } from '../content/supermarketProfile';
@@ -46,6 +47,7 @@ export const routes = [
           { path: 'inventario-articulos', Component: ArticleInventoryPage },
         ],
       },
+      { path: 'articulos/:articleId', Component: ArticleDetailPage },
       { path: '*', Component: NotFoundPage },
     ],
   },

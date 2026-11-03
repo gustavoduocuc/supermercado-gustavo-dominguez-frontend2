@@ -1,9 +1,7 @@
-import { Button } from '../../ui/Button/Button';
+import { ArticleRow } from '../ArticleRow/ArticleRow';
 
 const headerClass =
   'border-b border-solid border-line px-3 py-2 text-left font-semibold';
-const cellClass = 'border-b border-solid border-line px-3 py-2 text-left';
-const quantityClass = `${cellClass} whitespace-nowrap text-sm font-semibold`;
 
 export function ArticleTable(props) {
   return (
@@ -30,24 +28,7 @@ export function ArticleTable(props) {
         </thead>
         <tbody>
           {props.articles.map(function renderArticle(article) {
-            return (
-              <tr key={article.id}>
-                <td className={cellClass}>{article.name}</td>
-                <td className={cellClass}>{article.brand}</td>
-                <td className={cellClass}>{article.productType}</td>
-                <td className={quantityClass}>{article.quantity} unidades</td>
-                <td className={cellClass}>
-                  <Button
-                    variant="ghost"
-                    onClick={function removeRow() {
-                      props.onRemove(article.id);
-                    }}
-                  >
-                    Eliminar
-                  </Button>
-                </td>
-              </tr>
-            );
+            return <ArticleRow key={article.id} article={article} onRemove={props.onRemove} />;
           })}
         </tbody>
       </table>
