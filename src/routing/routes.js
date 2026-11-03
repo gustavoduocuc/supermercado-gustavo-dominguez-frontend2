@@ -1,5 +1,11 @@
 import { createBrowserRouter } from 'react-router';
 import { AboutPage } from '../about/AboutPage/AboutPage';
+import {
+  ArticleManagementIndex,
+  ArticleManagementLayout,
+} from '../articles/ArticleManagementLayout/ArticleManagementLayout';
+import { AddArticlePage } from '../articles/AddArticlePage/AddArticlePage';
+import { ArticleInventoryPage } from '../articles/ArticleInventoryPage/ArticleInventoryPage';
 import { products } from '../catalog/products';
 import { ContactPage } from '../contact/ContactPage/ContactPage';
 import { supermarketProfile } from '../content/supermarketProfile';
@@ -36,6 +42,15 @@ export const routes = [
       { index: true, Component: InventoryPage, loader: loadProducts },
       { path: 'quienes-somos', Component: AboutPage, loader: loadAbout },
       { path: 'contacto', Component: ContactPage, loader: loadContact },
+      {
+        path: 'gestion-articulos',
+        Component: ArticleManagementLayout,
+        children: [
+          { index: true, Component: ArticleManagementIndex },
+          { path: 'agregar-articulo', Component: AddArticlePage },
+          { path: 'inventario-articulos', Component: ArticleInventoryPage },
+        ],
+      },
       { path: '*', Component: NotFoundPage },
     ],
   },
