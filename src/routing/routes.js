@@ -6,16 +6,11 @@ import {
 } from '../articles/ArticleManagementLayout/ArticleManagementLayout';
 import { AddArticlePage } from '../articles/AddArticlePage/AddArticlePage';
 import { ArticleInventoryPage } from '../articles/ArticleInventoryPage/ArticleInventoryPage';
-import { products } from '../catalog/products';
 import { ContactPage } from '../contact/ContactPage/ContactPage';
 import { supermarketProfile } from '../content/supermarketProfile';
 import { InventoryPage } from '../inventory/InventoryPage/InventoryPage';
 import { AppShell } from '../shell/AppShell/AppShell';
 import { NotFoundPage } from './NotFoundPage/NotFoundPage';
-
-export function loadProducts() {
-  return products;
-}
 
 export function loadAbout() {
   return supermarketProfile.aboutParagraphs;
@@ -39,7 +34,7 @@ export const routes = [
     Component: AppShell,
     HydrateFallback: ShellHydrateFallback,
     children: [
-      { index: true, Component: InventoryPage, loader: loadProducts },
+      { index: true, Component: InventoryPage },
       { path: 'quienes-somos', Component: AboutPage, loader: loadAbout },
       { path: 'contacto', Component: ContactPage, loader: loadContact },
       {

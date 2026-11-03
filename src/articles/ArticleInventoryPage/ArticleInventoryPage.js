@@ -3,6 +3,7 @@ import { useArticleInventory } from '../ArticleInventoryProvider/ArticleInventor
 const headerClass =
   'border-b border-[var(--color-line)] px-3 py-2 text-left font-semibold';
 const cellClass = 'border-b border-[var(--color-line)] px-3 py-2 text-left';
+const quantityClass = `${cellClass} whitespace-nowrap text-sm font-semibold`;
 
 export function ArticleInventoryPage() {
   const inventory = useArticleInventory();
@@ -22,6 +23,12 @@ export function ArticleInventoryPage() {
             <th className={headerClass} scope="col">
               Tipo
             </th>
+            <th className={headerClass} scope="col">
+              Unidades
+            </th>
+            <th className={headerClass} scope="col">
+              Acciones
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +38,18 @@ export function ArticleInventoryPage() {
                 <td className={cellClass}>{article.name}</td>
                 <td className={cellClass}>{article.brand}</td>
                 <td className={cellClass}>{article.productType}</td>
+                <td className={quantityClass}>{article.quantity} unidades</td>
+                <td className={cellClass}>
+                  <button
+                    className="min-h-11 rounded px-3 py-2 text-sm text-[var(--color-accent)]"
+                    type="button"
+                    onClick={function removeRow() {
+                      inventory.removeArticle(article.id);
+                    }}
+                  >
+                    Eliminar
+                  </button>
+                </td>
               </tr>
             );
           })}
