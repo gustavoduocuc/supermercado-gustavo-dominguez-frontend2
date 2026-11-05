@@ -5,12 +5,15 @@ import {
   ArticleManagementLayout,
 } from '../articles/ArticleManagementLayout/ArticleManagementLayout';
 import { AddArticlePage } from '../articles/AddArticlePage/AddArticlePage';
+import { ArticleDetailPage } from '../articles/ArticleDetailPage/ArticleDetailPage';
 import { ArticleInventoryPage } from '../articles/ArticleInventoryPage/ArticleInventoryPage';
+import { CartPage } from '../cart/CartPage/CartPage';
 import { ContactPage } from '../contact/ContactPage/ContactPage';
 import { supermarketProfile } from '../content/supermarketProfile';
 import { InventoryPage } from '../inventory/InventoryPage/InventoryPage';
 import { AppShell } from '../shell/AppShell/AppShell';
 import { NotFoundPage } from './NotFoundPage/NotFoundPage';
+import { getRouterBasename } from './routerBasename';
 
 export function loadAbout() {
   return supermarketProfile.aboutParagraphs;
@@ -46,9 +49,13 @@ export const routes = [
           { path: 'inventario-articulos', Component: ArticleInventoryPage },
         ],
       },
+      { path: 'articulos/:articleId', Component: ArticleDetailPage },
+      { path: 'carrito', Component: CartPage },
       { path: '*', Component: NotFoundPage },
     ],
   },
 ];
 
-export const appRouter = createBrowserRouter(routes);
+export const appRouter = createBrowserRouter(routes, {
+  basename: getRouterBasename(process.env.PUBLIC_URL),
+});
