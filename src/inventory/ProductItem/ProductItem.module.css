@@ -10,10 +10,6 @@
   border-radius: 0.75rem;
 }
 
-.name {
-  font-weight: 600;
-}
-
 .detail {
   color: var(--color-muted);
   white-space: nowrap;

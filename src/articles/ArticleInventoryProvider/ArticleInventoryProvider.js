@@ -1,68 +1,58 @@
 import { createContext, useContext, useState } from 'react';
 import { defaultArticles } from '../defaultArticles';
+import * as transitions from './inventoryTransitions';
 
 const ArticleInventoryContext = createContext(null);
 
-function normalizeText(value) {
-  return value.trim().toLocaleLowerCase('es');
-}
-
-function articleKey(article) {
-  return [
-    normalizeText(article.name),
-    normalizeText(article.brand),
-    normalizeText(article.productType),
-  ].join('\n');
-}
-
 export function ArticleInventoryProvider(props) {
-  const [articles, setArticles] = useState(defaultArticles);
+  const [state, setState] = useState({ articles: defaultArticles, cartLines: [] });
 
   function addArticle(article) {
-    setArticles(function storeArticle(currentArticles) {
-      const key = articleKey(article);
-      const match = currentArticles.find(function sameArticle(current) {
-        return articleKey(current) === key;
-      });
-      if (match) {
-        return currentArticles.map(function addUnits(current) {
-          if (current.id !== match.id) {
-            return current;
-          }
-          return {
-            id: current.id,
-            name: current.name,
-            brand: current.brand,
-            productType: current.productType,
-            quantity: current.quantity + article.quantity,
-          };
-        });
-      }
-      return currentArticles.concat({
-        id: crypto.randomUUID(),
-        name: article.name,
-        brand: article.brand,
-        productType: article.productType,
-        quantity: article.quantity,
-      });
+    const articleWithId = { ...article, id: crypto.randomUUID() };
+    setState(function storeArticle(previous) {
+      return transitions.registerArticle(previous, articleWithId);
     });
   }
 
   function removeArticle(articleId) {
-    setArticles(function dropArticle(currentArticles) {
-      return currentArticles.filter(function keepArticle(current) {
-        return current.id !== articleId;
-      });
+    setState(function dropArticle(previous) {
+      return transitions.deleteArticle(previous, articleId);
     });
   }
 
+  function addUnitToCart(articleId) {
+    setState(function moveUnitToCart(previous) {
+      return transitions.addUnitToCart(previous, articleId);
+    });
+  }
+
+  function removeUnitFromCart(articleId) {
+    setState(function moveUnitToInventory(previous) {
+      return transitions.removeUnitFromCart(previous, articleId);
+    });
+  }
+
+  const inventory = {
+    articles: state.articles,
+    cartLines: state.cartLines,
+    cartUnitCount: transitions.countCartUnits(state.cartLines),
+    addArticle,
+    removeArticle,
+    addUnitToCart,
+    removeUnitFromCart,
+  };
+
   return (
-    <ArticleInventoryContext.Provider value={{ articles, addArticle, removeArticle }}>
+    <ArticleInventoryContext.Provider value={inventory}>
       {props.children}
     </ArticleInventoryContext.Provider>
   );
 }
 
 export function useArticleInventory() {
-  return useContext(ArticleInventoryContext);
+  const inventory = useContext(ArticleInventoryContext);
+  if (!inventory) {
+    throw new Error('useArticleInventory needs an ArticleInventoryProvider');
+  }
+  return inventory;
 }
