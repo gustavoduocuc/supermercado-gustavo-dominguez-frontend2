@@ -11,6 +11,7 @@ import { supermarketProfile } from '../content/supermarketProfile';
 import { InventoryPage } from '../inventory/InventoryPage/InventoryPage';
 import { AppShell } from '../shell/AppShell/AppShell';
 import { NotFoundPage } from './NotFoundPage/NotFoundPage';
+import { getRouterBasename } from './routerBasename';
 
 export function loadAbout() {
   return supermarketProfile.aboutParagraphs;
@@ -51,4 +52,6 @@ export const routes = [
   },
 ];
 
-export const appRouter = createBrowserRouter(routes);
+export const appRouter = createBrowserRouter(routes, {
+  basename: getRouterBasename(process.env.PUBLIC_URL),
+});
