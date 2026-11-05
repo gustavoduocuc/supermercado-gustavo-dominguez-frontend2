@@ -27,6 +27,10 @@ Inventario de artículos (`/gestion-articulos/inventario-articulos`) muestra la 
 
 La lista vive en memoria. Al recargar la página vuelven los seis artículos iniciales. No hay inicio de sesión.
 
+## Sitio publicado
+
+El sitio publicado está en [https://gustavoduocuc.github.io/supermercado-gustavo-dominguez-frontend2/](https://gustavoduocuc.github.io/supermercado-gustavo-dominguez-frontend2/). La rama `dev` se publica automáticamente.
+
 ## Cómo ejecutarla
 
 Hace falta Node.js. En la carpeta del proyecto:
