@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/supermercado-gustavo-dominguez-frontend2/static/css/main.1ee8eeb0.css",
+    "main.js": "/supermercado-gustavo-dominguez-frontend2/static/js/main.7d35c8da.js",
+    "static/js/453.8bc9d59c.chunk.js": "/supermercado-gustavo-dominguez-frontend2/static/js/453.8bc9d59c.chunk.js",
+    "index.html": "/supermercado-gustavo-dominguez-frontend2/index.html",
+    "main.1ee8eeb0.css.map": "/supermercado-gustavo-dominguez-frontend2/static/css/main.1ee8eeb0.css.map",
+    "main.7d35c8da.js.map": "/supermercado-gustavo-dominguez-frontend2/static/js/main.7d35c8da.js.map",
+    "453.8bc9d59c.chunk.js.map": "/supermercado-gustavo-dominguez-frontend2/static/js/453.8bc9d59c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ee8eeb0.css",
+    "static/js/main.7d35c8da.js"
+  ]
+}
