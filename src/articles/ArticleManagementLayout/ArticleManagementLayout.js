@@ -1,7 +1,7 @@
 import { NavLink, Navigate, Outlet } from 'react-router';
+import { focusRingClass } from '../../ui/focusRing';
 
-const baseLinkClass =
-  'inline-flex min-h-11 items-center rounded px-3 py-2 text-sm transition-colors duration-200 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
+const baseLinkClass = `inline-flex min-h-11 items-center rounded px-3 py-2 text-sm transition-colors duration-200 hover:text-accent ${focusRingClass}`;
 const currentLinkClass = `${baseLinkClass} font-semibold text-accent underline`;
 const otherLinkClass = `${baseLinkClass} text-muted`;
 

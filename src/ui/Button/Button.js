@@ -1,5 +1,6 @@
-const baseClass =
-  'min-h-11 min-w-11 rounded px-4 py-2 text-sm transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:bg-line disabled:text-muted';
+import { focusRingClass } from '../focusRing';
+
+const baseClass = `min-h-11 min-w-11 rounded px-4 py-2 text-sm transition-colors duration-200 ${focusRingClass} disabled:cursor-not-allowed disabled:bg-line disabled:text-muted`;
 
 const variantClasses = {
   primary: `${baseClass} border-0 bg-accent text-surface hover:opacity-90 disabled:hover:opacity-100`,

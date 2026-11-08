@@ -1,13 +1,15 @@
+import { focusRingClass } from '../../ui/focusRing';
 import { ArticleRow } from '../ArticleRow/ArticleRow';
 
 const headerClass =
   'border-b border-solid border-line px-3 py-2 text-left font-semibold';
+const regionClass = `overflow-x-auto ${focusRingClass}`;
 
 export function ArticleTable(props) {
   return (
     <div
       aria-label="Inventario de artículos"
-      className="overflow-x-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className={regionClass}
       role="region"
       tabIndex={0}
     >
