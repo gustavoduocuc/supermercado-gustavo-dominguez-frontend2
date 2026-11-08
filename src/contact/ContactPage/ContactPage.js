@@ -14,9 +14,9 @@ export function ContactPage() {
           <p>{contact.address}</p>
           <dl className="flex flex-col gap-1">
             <dt className="text-sm text-muted">Teléfono</dt>
-            <dd className="mb-3">{contact.phone}</dd>
+            <dd className="flex min-h-11 items-center">{contact.phone}</dd>
             <dt className="text-sm text-muted">Correo</dt>
-            <dd>
+            <dd className="flex min-h-11 items-center">
               <a className={textLinkClass} href={'mailto:' + contact.email}>
                 {contact.email}
               </a>
