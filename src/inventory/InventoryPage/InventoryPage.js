@@ -2,23 +2,23 @@ import { useArticleInventory } from '../../articles/ArticleInventoryProvider/Art
 import { CategoryFilter } from '../../filters/CategoryFilter/CategoryFilter';
 import { NoArticlesMessage } from '../../filters/NoArticlesMessage/NoArticlesMessage';
 import { useCategoryFilter } from '../../filters/useCategoryFilter/useCategoryFilter';
-import { ProductItem } from '../ProductItem/ProductItem';
-import styles from './InventoryPage.module.css';
+import { PageTitle } from '../../ui/PageTitle/PageTitle';
+import { ProductCard } from '../ProductCard/ProductCard';
 
 export function InventoryPage() {
   const inventory = useArticleInventory();
   const filter = useCategoryFilter(inventory.articles);
 
   return (
-    <section className={styles.page}>
-      <h1 className={styles.title}>Inventario</h1>
+    <section className="flex flex-col gap-section">
+      <PageTitle>Inventario</PageTitle>
       <CategoryFilter category={filter.category} onSelect={filter.selectCategory} />
       {filter.visibleArticles.length === 0 ? (
         <NoArticlesMessage />
       ) : (
-        <ul className={styles.list}>
+        <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {filter.visibleArticles.map(function renderArticle(article) {
-            return <ProductItem key={article.id} article={article} />;
+            return <ProductCard key={article.id} article={article} />;
           })}
         </ul>
       )}
