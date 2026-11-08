@@ -33,7 +33,7 @@ export function CartPage() {
             })}
           </ul>
           <Card as="aside" className="p-4 lg:sticky lg:top-24 lg:w-72">
-            <UnitCount large quantity={inventory.cartUnitCount} />
+            <UnitCount quantity={inventory.cartUnitCount} size="large" />
           </Card>
         </div>
       )}
