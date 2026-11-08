@@ -47,6 +47,7 @@ module.exports = {
         card: 'var(--shadow-card)',
         header: 'var(--shadow-header)',
         menu: 'var(--shadow-menu)',
+        sticky: 'var(--shadow-sticky)',
       },
       fontFamily: {
         sans: 'var(--font-sans)',

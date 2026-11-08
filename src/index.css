@@ -43,6 +43,7 @@
   --shadow-card: 0 1px 2px rgb(28 25 21 / 0.06), 0 1px 3px rgb(28 25 21 / 0.04);
   --shadow-header: 0 1px 0 var(--color-line), 0 2px 8px rgb(28 25 21 / 0.06);
   --shadow-menu: 0 -2px 8px rgb(28 25 21 / 0.08);
+  --shadow-sticky: 1px 0 0 var(--color-line), 6px 0 8px -4px rgb(28 25 21 / 0.14);
 
   --size-page: 72rem;
   --size-form: 36rem;
