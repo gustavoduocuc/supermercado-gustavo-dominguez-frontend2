@@ -15,14 +15,14 @@ export function AppShell() {
             <Link className={brandClass} to="/">
               Supermercado La Quinta
             </Link>
+            <SectionMenu />
           </PageContainer>
         </header>
-        <main className="flex-1 py-6 pb-24 md:py-10 md:pb-24">
+        <main className="flex-1 py-6 pb-24 md:py-10">
           <PageContainer>
             <Outlet />
           </PageContainer>
         </main>
-        <SectionMenu />
       </div>
     </ArticleInventoryProvider>
   );
