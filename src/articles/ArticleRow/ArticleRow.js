@@ -22,7 +22,7 @@ export function ArticleRow(props) {
       <td className={cellClass}>
         <Button
           ariaLabel={`Eliminar ${props.article.name}`}
-          variant="ghost"
+          variant="danger"
           onClick={removeRow}
         >
           Eliminar
