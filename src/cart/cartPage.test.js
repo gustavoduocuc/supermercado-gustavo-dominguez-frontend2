@@ -95,3 +95,25 @@ test('an empty cart shows a message and a link to see articles', async () => {
   expect(await screen.findByText('Tu carrito está vacío.')).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Ver artículos' })).toHaveAttribute('href', '/');
 });
+
+test('the cart shows a summary with the total units', async () => {
+  const router = renderAt('/');
+  await screen.findByRole('heading', { level: 1, name: 'Inventario' });
+  await addUnits(router, 'leche', 2);
+  await addUnits(router, 'pan', 3);
+  await goTo(router, '/carrito');
+
+  const summary = await screen.findByRole('complementary');
+  const lines = within(screen.getByRole('list', { name: 'Carrito' })).getAllByRole('listitem');
+
+  expect(within(summary).getByText('5 unidades')).toBeInTheDocument();
+  expect(within(lines[0]).getByText('Leche entera 1 L')).toBeInTheDocument();
+});
+
+test('an empty cart has no summary', async () => {
+  renderAt('/carrito');
+
+  await screen.findByText('Tu carrito está vacío.');
+
+  expect(screen.queryByRole('complementary')).not.toBeInTheDocument();
+});
