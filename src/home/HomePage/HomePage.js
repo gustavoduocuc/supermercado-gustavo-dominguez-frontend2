@@ -5,7 +5,7 @@ import { useCategoryFilter } from '../../filters/useCategoryFilter/useCategoryFi
 import { PageTitle } from '../../ui/PageTitle/PageTitle';
 import { ProductCard } from '../ProductCard/ProductCard';
 
-export function InventoryPage() {
+export function HomePage() {
   const inventory = useArticleInventory();
   const filter = useCategoryFilter(inventory.articles);
 

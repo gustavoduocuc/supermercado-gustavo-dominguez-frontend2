@@ -10,7 +10,7 @@ import { ArticleInventoryPage } from '../articles/ArticleInventoryPage/ArticleIn
 import { CartPage } from '../cart/CartPage/CartPage';
 import { ContactPage } from '../contact/ContactPage/ContactPage';
 import { supermarketProfile } from '../content/supermarketProfile';
-import { InventoryPage } from '../inventory/InventoryPage/InventoryPage';
+import { HomePage } from '../home/HomePage/HomePage';
 import { AppShell } from '../shell/AppShell/AppShell';
 import { NotFoundPage } from './NotFoundPage/NotFoundPage';
 import { getRouterBasename } from './routerBasename';
@@ -37,7 +37,7 @@ export const routes = [
     Component: AppShell,
     HydrateFallback: ShellHydrateFallback,
     children: [
-      { index: true, Component: InventoryPage },
+      { index: true, Component: HomePage },
       { path: 'quienes-somos', Component: AboutPage, loader: loadAbout },
       { path: 'contacto', Component: ContactPage, loader: loadContact },
       {
