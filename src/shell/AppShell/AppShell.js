@@ -4,7 +4,7 @@ import { focusRingClass } from '../../ui/focusRing';
 import { PageContainer } from '../../ui/PageContainer/PageContainer';
 import { SectionMenu } from '../SectionMenu/SectionMenu';
 
-const brandClass = `inline-flex min-h-11 items-center rounded text-lg font-bold text-accent transition-colors duration-200 hover:text-accent-strong ${focusRingClass}`;
+const brandClass = `inline-flex min-h-11 items-center rounded text-base font-bold text-accent lg:text-lg transition-colors duration-200 hover:text-accent-strong ${focusRingClass}`;
 
 export function AppShell() {
   return (
