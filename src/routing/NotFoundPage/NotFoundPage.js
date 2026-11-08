@@ -1,16 +1,14 @@
-import { Link } from 'react-router';
-import styles from './NotFoundPage.module.css';
+import { EmptyState } from '../../ui/EmptyState/EmptyState';
+import { PageTitle } from '../../ui/PageTitle/PageTitle';
+import { TextLink } from '../../ui/TextLink/TextLink';
 
 export function NotFoundPage() {
   return (
-    <section className={styles.page}>
-      <h1 className={styles.title}>Página no encontrada</h1>
-      <p className={styles.message}>
-        La dirección no corresponde a ninguna sección.
-      </p>
-      <Link className={styles.homeLink} to="/">
-        Volver a Inicio
-      </Link>
+    <section className="flex flex-col gap-section">
+      <PageTitle>Página no encontrada</PageTitle>
+      <EmptyState message="La dirección no corresponde a ninguna sección.">
+        <TextLink to="/">Volver a Inicio</TextLink>
+      </EmptyState>
     </section>
   );
 }

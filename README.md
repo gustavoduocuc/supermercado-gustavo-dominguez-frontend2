@@ -4,13 +4,14 @@ Sitio de la tienda de barrio. Muestra el inventario, una presentación de la tie
 
 ## Secciones
 
-El menú inferior tiene cuatro destinos:
+El menú de secciones va abajo en móvil y en la cabecera desde tablet. Tiene cinco destinos:
 
 | Sección | Dirección | Qué muestra |
 | --- | --- | --- |
 | Inicio | `/` | Nombre, marca, tipo y unidades de cada artículo. No se puede agregar ni eliminar desde aquí. |
 | Quiénes somos | `/quienes-somos` | Presentación de la tienda. |
 | Contáctanos | `/contacto` | Avenida Principal 120, La Quinta, teléfono +56 9 5555 0142 y correo contacto@supermercadolquinta.cl. |
+| Carrito | `/carrito` | Los artículos agregados al carrito, con su cantidad. |
 | Gestión de artículos | `/gestion-articulos` | Enlaces a Agregar artículo y a Inventario de artículos. |
 
 Una dirección desconocida explica que la sección no existe y ofrece volver a Inicio.
