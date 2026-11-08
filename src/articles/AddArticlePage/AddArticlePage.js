@@ -41,14 +41,7 @@ export function AddArticlePage() {
       productType: draft.productType,
       quantity: Number(draft.quantity),
     });
-    setDraft(function clearDraft() {
-      return {
-        name: '',
-        brand: '',
-        productType: 'Abarrotes',
-        quantity: '1',
-      };
-    });
+    setDraft(emptyDraft);
   }
 
   return (
