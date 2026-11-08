@@ -69,6 +69,7 @@ test('home lists the shared articles and no edit controls', async () => {
   renderAt('/');
 
   expect(await screen.findByRole('list')).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 1, name: 'Artículos' })).toBeInTheDocument();
   expect(screen.getByText('Leche entera 1 L')).toBeInTheDocument();
   expect(screen.getByText('24 unidades')).toBeInTheDocument();
   expect(screen.getByText('40 unidades')).toBeInTheDocument();
