@@ -1,6 +1,6 @@
 import { focusRingClass } from '../focusRing';
 
-const baseClass = `inline-flex min-h-11 min-w-11 items-center justify-center rounded-control border border-solid px-4 py-2 text-sm font-semibold transition-colors duration-200 ${focusRingClass} disabled:cursor-not-allowed disabled:border-line disabled:bg-background disabled:text-muted`;
+const baseClass = `inline-flex min-h-11 min-w-11 items-center justify-center rounded-control border px-4 py-2 text-sm font-semibold transition-colors duration-200 ${focusRingClass} disabled:cursor-not-allowed disabled:border-line disabled:bg-background disabled:text-muted`;
 
 const variantClasses = {
   primary: `${baseClass} border-accent bg-accent text-surface enabled:hover:border-accent-strong enabled:hover:bg-accent-strong enabled:active:shadow-inner`,
