@@ -69,6 +69,7 @@ test('home lists the shared articles and no edit controls', async () => {
   renderAt('/');
 
   expect(await screen.findByRole('list')).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 1, name: 'Artículos' })).toBeInTheDocument();
   expect(screen.getByText('Leche entera 1 L')).toBeInTheDocument();
   expect(screen.getByText('24 unidades')).toBeInTheDocument();
   expect(screen.getByText('40 unidades')).toBeInTheDocument();
@@ -77,7 +78,9 @@ test('home lists the shared articles and no edit controls', async () => {
   expect(screen.getByText('9 unidades')).toBeInTheDocument();
   expect(screen.getByText('7 unidades')).toBeInTheDocument();
   expect(screen.getByText('Pan hallulla')).toBeInTheDocument();
-  expect(screen.getByText('Colún · Lácteos')).toBeInTheDocument();
+  const milkCard = screen.getByText('Leche entera 1 L').closest('li');
+  expect(within(milkCard).getByText('Colún')).toBeInTheDocument();
+  expect(within(milkCard).getByText('Lácteos')).toBeInTheDocument();
   expect(screen.queryByText(/en stock/)).not.toBeInTheDocument();
   expect(screen.queryByRole('button')).not.toBeInTheDocument();
   expect(screen.queryByRole('form')).not.toBeInTheDocument();
@@ -165,7 +168,9 @@ test('submitting an article shows it in the table and on home', async () => {
   await userEvent.click(screen.getByRole('link', { name: 'Inicio' }));
 
   expect(await screen.findByText('Yogur natural')).toBeInTheDocument();
-  expect(screen.getByText('Soprole · Lácteos')).toBeInTheDocument();
+  const yogurtCard = screen.getByText('Yogur natural').closest('li');
+  expect(within(yogurtCard).getByText('Soprole')).toBeInTheDocument();
+  expect(within(yogurtCard).getByText('Lácteos')).toBeInTheDocument();
   expect(screen.getByText('Pan hallulla')).toBeInTheDocument();
 });
 

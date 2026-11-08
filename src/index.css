@@ -8,12 +8,57 @@
   --color-text: #1c1915;
   --color-muted: #5c564e;
   --color-accent: #1f6b4a;
+  --color-accent-strong: #17553a;
+  --color-accent-soft: #e7f1eb;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdecea;
   --color-line: #e4ddd2;
+  --color-field: #8a8378;
+
+  --color-category-abarrotes-bg: #f6ecd6;
+  --color-category-abarrotes-fg: #6b4a0b;
+  --color-category-bebidas-bg: #e1edf7;
+  --color-category-bebidas-fg: #1d4e7a;
+  --color-category-carnes-bg: #f8e1de;
+  --color-category-carnes-fg: #8a2b22;
+  --color-category-congelados-bg: #dff1f3;
+  --color-category-congelados-fg: #17575f;
+  --color-category-frescos-bg: #e3f1e1;
+  --color-category-frescos-fg: #26602a;
+  --color-category-higiene-bg: #ebe4f5;
+  --color-category-higiene-fg: #4f3580;
+  --color-category-lacteos-bg: #f5f1d3;
+  --color-category-lacteos-fg: #5e5410;
+  --color-category-limpieza-bg: #dcf2ea;
+  --color-category-limpieza-fg: #14614a;
+  --color-category-panaderia-bg: #f9e4d2;
+  --color-category-panaderia-fg: #7a3f0e;
+  --color-category-otros-bg: #ece8e1;
+  --color-category-otros-fg: #4a443b;
+
+  --radius-card: 1rem;
+  --radius-control: 0.625rem;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 1px 2px rgb(28 25 21 / 0.06), 0 1px 3px rgb(28 25 21 / 0.04);
+  --shadow-header: 0 1px 0 var(--color-line), 0 2px 8px rgb(28 25 21 / 0.06);
+  --shadow-menu: 0 -2px 8px rgb(28 25 21 / 0.08);
+  --shadow-sticky: 1px 0 0 var(--color-line), 6px 0 8px -4px rgb(28 25 21 / 0.14);
+
+  --size-page: 72rem;
+  --size-form: 36rem;
+  --size-reading: 40rem;
+
+  --space-gutter: 1rem;
+  --space-gutter-wide: 1.5rem;
+  --space-section: 1.5rem;
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
   color: var(--color-text);
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;

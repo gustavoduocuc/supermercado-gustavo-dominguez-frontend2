@@ -1,3 +1,5 @@
+import { EmptyState } from '../../ui/EmptyState/EmptyState';
+
 export function NoArticlesMessage() {
-  return <p className="m-0 text-base text-muted" role="status">No hay artículos en esta categoría.</p>;
+  return <EmptyState message="No hay artículos en esta categoría." role="status" />;
 }

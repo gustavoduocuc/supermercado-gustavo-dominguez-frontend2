@@ -1,7 +1,12 @@
+const baseClass = 'whitespace-nowrap text-text';
+
+const sizeClasses = {
+  normal: `${baseClass} text-sm font-semibold`,
+  large: `${baseClass} text-xl font-bold`,
+};
+
 export function UnitCount(props) {
   return (
-    <span className="whitespace-nowrap text-sm font-semibold text-text">
-      {props.quantity} unidades
-    </span>
+    <span className={sizeClasses[props.size ?? 'normal']}>{props.quantity} unidades</span>
   );
 }

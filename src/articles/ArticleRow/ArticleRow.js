@@ -1,8 +1,7 @@
 import { Button } from '../../ui/Button/Button';
 import { ArticleLink } from '../ArticleLink/ArticleLink';
+import { bodyCellClass, stickyCellClass } from '../tableCellClass';
 import { UnitCount } from '../UnitCount/UnitCount';
-
-const cellClass = 'border-b border-solid border-line px-3 py-2 text-left';
 
 export function ArticleRow(props) {
   function removeRow() {
@@ -10,19 +9,19 @@ export function ArticleRow(props) {
   }
 
   return (
-    <tr>
-      <td className={cellClass}>
+    <tr className="bg-surface transition-colors duration-200 hover:bg-accent-soft">
+      <td className={`${bodyCellClass} ${stickyCellClass}`}>
         <ArticleLink article={props.article} />
       </td>
-      <td className={cellClass}>{props.article.brand}</td>
-      <td className={cellClass}>{props.article.productType}</td>
-      <td className={cellClass}>
+      <td className={bodyCellClass}>{props.article.brand}</td>
+      <td className={bodyCellClass}>{props.article.productType}</td>
+      <td className={bodyCellClass}>
         <UnitCount quantity={props.article.quantity} />
       </td>
-      <td className={cellClass}>
+      <td className={bodyCellClass}>
         <Button
           ariaLabel={`Eliminar ${props.article.name}`}
-          variant="ghost"
+          variant="danger"
           onClick={removeRow}
         >
           Eliminar
